@@ -10,9 +10,15 @@ body{
 }
 main{
     max-width: 370px;
-    margin: 5px auto;
+    margin: 30px auto;
     background: #eee;
-    height: 600px;
+    max-height: 600px;
+    overflow-y: scroll;
+    position: relative;
+    -webkit-box-shadow: 0px 0px 15px 5px rgba(156,151,156,0.67);
+-moz-box-shadow: 0px 0px 15px 5px rgba(156,151,156,0.67);
+box-shadow: 0px 0px 15px 5px rgba(156,151,156,0.67);
+
 }
 
 ul{
@@ -23,12 +29,20 @@ ul{
     color: #eee;
     height: 60px;
     align-items: stretch;
+    position: sticky;
+    z-index: 5;
+    top: 0;
 }
 
 li{
     
     flex-basis: 33.33%;
     cursor: pointer;
+}
+
+ul li:nth-of-type(2){
+    border-left: 1px solid #9e9c9c;
+    border-right: 1px solid #9e9c9c;
 }
 a:hover,a.active{
     background: #815faf;
@@ -42,10 +56,85 @@ li a{
     padding: 22px 0;
 }
 
+a.active{
+    position: relative;
+}
+a.active::after{
+    position: absolute;
+    top: 60px;
+    left: 45px;
+    display: block;
+    content: '';
+    width: 0;
+	height: 0;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-top: 10px solid #815faf;
+}
+
 
 div.active{
     display: block;
+    margin-top: 5px;
+  
 }
-div:not(.active){
+div.flex{
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background: #f4f4f4;
+    padding: 0 20px;
+}
+main>div:not(.active){
     display: none;
+}
+.profile-img{
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+    border: 3px solid #e1e1e6;
+    margin-right: 20px;
+}
+
+.online-circle{
+    width: 10px;
+    margin-left: auto;
+    
+}
+.text{
+    text-align: left;
+    height: 100%;
+    padding-top: 20px;
+    position: relative;
+}
+.user-name{
+    font-size: 18px;
+}
+.stream{
+    position: absolute;
+    bottom: 6px;
+    font-size: 14px;
+    color: rgba(0,0,0,0.6);
+}
+footer {
+    background: #4b367c;
+    position: sticky;
+    bottom: 0;
+    padding: 8px 0;
+}
+footer img {
+    width: 50px;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+a.link {
+    color: rgba(0,0,0,0.8);
+    text-decoration: none;
+}
+a.link:hover{
+    text-decoration: underline;
+    color: rgba(0,0,0,0.9);
 }
